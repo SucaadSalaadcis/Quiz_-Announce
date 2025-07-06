@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -15,6 +16,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import QuizIcon from '@mui/icons-material/Quiz';
 import CampaignIcon from '@mui/icons-material/Campaign';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useLocation, useNavigate, Outlet } from 'react-router-dom';
 import Header from './Header';
@@ -92,6 +94,27 @@ export default function Sidebar() {
             </ListItem>
           );
         })}
+
+        {/* Logout btn */}
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={() => {
+              localStorage.removeItem('isLoggedIn');
+              navigate('/');
+            }}
+            sx={{
+              color: 'white',
+              mx: 1,
+              borderRadius: '10px',
+              '& .MuiListItemIcon-root': { color: 'inherit' },
+            }}
+          >
+            <ListItemIcon sx={{ color: 'inherit' }}>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );
@@ -101,7 +124,7 @@ export default function Sidebar() {
       <CssBaseline />
       <Header onMenuClick={handleDrawerToggle} />
 
-      {/* Mobile Drawer */}
+      {/* Mobile drawer */}
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -119,7 +142,7 @@ export default function Sidebar() {
         {drawer}
       </Drawer>
 
-      {/* Desktop Drawer */}
+      {/* Desktop drawer */}
       <Drawer
         variant="permanent"
         sx={{
@@ -135,7 +158,7 @@ export default function Sidebar() {
         {drawer}
       </Drawer>
 
-      {/* Main Content */}
+      {/* Main content */}
       <Box
         component="main"
         sx={{
