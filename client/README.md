@@ -1,6 +1,8 @@
 Project Overview
 This is a React-based Quiz and Announcement App built with modern UI tools. It supports creating, updating, and managing quizzes and announcements, with full CRUD functionality.
 
+
+
 Tech Stack
 Frontend:
 
@@ -28,3 +30,4 @@ Built with RESTful API structure
 
 Handles full CRUD operations
 
+Time spent: Approximately 3.5 days including both frontend and backend development.
